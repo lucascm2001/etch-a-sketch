@@ -15,4 +15,5 @@ body {
     flex-wrap: wrap;
     width: 720px;
     height: 720px;
+    border: solid pink 2px;
 }
