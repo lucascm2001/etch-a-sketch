@@ -29,9 +29,17 @@ function createGrid(sideLen) {
         square.style.border = 'solid black 1px';
     
         // add hover effect
-        square.addEventListener('mouseenter', () => {
-            square.style.backgroundColor = 'black';
+        const makeColor = (event) => {
+            randRed = Math.floor(Math.random() * 256);
+            randGreen = Math.floor(Math.random() * 256);
+            randBlue = Math.floor(Math.random() * 256);
+            event.target.style.backgroundColor = `rgb(${randRed}, ${randGreen}, ${randBlue})`;
+        };
+        square.addEventListener('mousedown', makeColor);
+        square.addEventListener('mouseenter', (event) => {
+            if (event.buttons == 1) makeColor(event);
         });
+        square.addEventListener('mousedown', (e) => e.preventDefault());
     
     
         container.appendChild(square);
